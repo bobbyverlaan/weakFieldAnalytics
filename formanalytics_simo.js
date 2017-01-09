@@ -1,21 +1,20 @@
-/*********************************
-	WEAK FIELDS exits with timings
-
-  original source: https://www.simoahava.com/analytics/form-field-timing-with-google-tag-manager/
-
-
-  Current assumptions
-  - The form should be selected on the body element (this can perhaps be more precize a bit more down the DOM tree?)
-  - time spent in a field is expressed in miliseconds
-  - A field is prefilled if the first enter contains the classes ng-not-empty and ng-untouched
-  - A field is valid if it contains the class ng-is-valid
-  - A field is completed with autocomplete or copy/paste if more than one characters gets inserted wihtin 2 miliseconds
-
-
-  BUGS
-  - firefox and safari don't fire the event focus on radio and checbox inputs. Need to do split the action based on input types.
-
-*********************************/
+/* WEAK FIELDS exits with timings
+*
+*  original source: https://www.simoahava.com/analytics/form-field-timing-with-google-tag-manager/
+*  original author: https://github.com/sahava
+*
+*  Current assumptions
+*  - The form should be selected on the body element (this can perhaps be more precize a bit more down where your forms are in the DOM tree)
+*  - time spent in a field is expressed in miliseconds
+*  - A field is completed with autocomplete or copy/paste if more than one characters gets inserted wihtin 2 miliseconds
+*  - Angular specific checks:
+*    - A field was prefilled if at first enter the form element contains the classes ng-not-empty and ng-untouched
+*    - A field is valid if it contains the class ng-is-valid
+*
+*
+*  BUGS
+*  - firefox and safari don't fire the event focus on radio and checbox inputs. Need to do split the action based on input types.
+*/
 
 (function() {
 
